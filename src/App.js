@@ -1,47 +1,27 @@
 import React, { Component } from 'react';
-import Todos from './Todos';
-import AddTodo from './AddTodo'
-import SideBar from './SideBar'
-import { connect } from 'react-redux'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Dashboard from './Components/Dashboard';
+import NavBar from './Components/NavBar';
+import Signin from './Components/Signin';
+import Signup from './Components/Signup';
 
 class App extends Component {
-  update = (content) => {
-    content? this.content = content: this.content = ''
-    }
 
   render() {
     return (
-      <div className="App container">
-        <div className="container center green-text">
-          <h2> Task Manager</h2>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
+          </Switch>
+
         </div>
-        <hr/>
-        <br/>
-        <div className="row">
-          <div className="col s7">
-            <Todos todos={this.props.todos} deleteTodo={this.props.deleteTodo} update={this.update} /><br/>
-            <AddTodo></AddTodo>
-          </div>
-          <div className="col s4 offset-s1">
-            <SideBar deleteHistory={this.content}/>
-          </div>
-        </div>
-      </div>
+      </BrowserRouter>
     )
   }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-    todos: state.todos
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deleteTodo : (id) => { dispatch({ type: "Delete_Todo", id: id})}
-    }
-  }
-
-
-export default connect(mapStatetoProps, mapDispatchToProps)(App);
+export default App ;

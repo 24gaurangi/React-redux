@@ -2,8 +2,8 @@ import React from 'react';
 
 
 const Todos = ({todos, deleteTodo, update}) => {
-  console.log(todos)
-  const todoList = todos.length ? (todos.map(todo => {
+  // ?console.log(todos)
+  const todoList = todos ? (todos.map(todo => {
     return(
         <div className="collection-item" key={todo.id}>
           <span>{todo.content}</span>

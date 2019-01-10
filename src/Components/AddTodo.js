@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { addAction } from '../actions/todoActions'
 
 class AddTodo extends Component {
   // componentDidMount(){
@@ -27,7 +28,7 @@ class AddTodo extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo : (content) => { dispatch({ type: "Add_Todo", content: content})  }
+    addTodo : (content) => { dispatch(addAction(content))  }
   }
 }
 

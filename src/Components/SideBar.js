@@ -10,10 +10,10 @@ render(){
   //       </div>
   //   )
   // })) : (<p className=" center">You have no items left! </p>)
-  console.log("delete history prop",this.props.deleteHistory)
+  // console.log("delete history prop",this.props.deleteHistory)
   return(
       <div className="sidebar container">
-        <div className="blue-text center"><h5>Last completed task</h5></div>
+        <div className="blue-text center"><h5>Notifications</h5></div>
           <ul>
           <li><h6 className="red-text" >{this.props.deleteHistory}</h6></li>
         </ul>
