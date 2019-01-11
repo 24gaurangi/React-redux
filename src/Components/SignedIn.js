@@ -8,15 +8,22 @@ const SignedIn = (props) => {
     <ul className="right">
       <li><NavLink to="/" className="black-text "> Analytics </NavLink></li>
       <li><a href="/" onClick={props.signOut} className="black-text"> Sign Out </a></li>
-      <li><NavLink to="/" className="btn btn-floating red lighten-2 black-text"> GW </NavLink></li>
+      <li><NavLink to="/" className="btn btn-floating red lighten-2 black-text"> {props.profile.initials} </NavLink></li>
     </ul>
     )
   }
 
+  const mapStatetoProps = (state) => {
+    return {
+      auth: state.firebase.auth,
+      authError: state.auth.authError,
+      profile: state.firebase.profile
+    }
+  }
   const mapDispatchToProps = (dispatch) => {
     return {
       signOut : () => { dispatch(signOut())}
       }
     }
 
-export default connect(null, mapDispatchToProps)(SignedIn);
+export default connect(mapStatetoProps, mapDispatchToProps)(SignedIn);

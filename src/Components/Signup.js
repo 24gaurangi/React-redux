@@ -53,6 +53,9 @@ class Signup extends Component {
             <button className="btn pink z-depth-0">Sign Up</button>
           </div>
         </form>
+        <div className="red-text center">
+          {this.props.authError}
+        </div>
       </div>
       )
     }
@@ -60,7 +63,9 @@ class Signup extends Component {
 
 const mapStatetoProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
+
   }
 }
 const mapDispatchToProps = (dispatch) => {
