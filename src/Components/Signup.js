@@ -22,7 +22,7 @@ class Signup extends Component {
     }
   handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(this.textInput.value)
+    console.log(this.state)
     this.props.signUp(this.state)
     }
 
@@ -34,12 +34,12 @@ class Signup extends Component {
         <form onSubmit={this.handleSubmit}>
           <h5 className="black-text">Sign Up</h5>
           <div className="input-field">
-            <label htmlFor="first name">First name</label>
-            <input type="text" id="first name"  onChange={this.handleChange} />
+            <label htmlFor="firstName">First name</label>
+            <input type="text" id="firstName"  onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="last name">Last name</label>
-            <input type="text" id="last name"  onChange={this.handleChange} />
+            <label htmlFor="lastName">Last name</label>
+            <input type="text" id="lastName"  onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="email">Email</label>
