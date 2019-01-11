@@ -27,7 +27,7 @@ export const signUp = (user) => {
     //async
     const firebase = getFirebase();
     const firestore = getFirestore();
-    firebase.auth().signOut().then(() => {
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((resp) => {
       dispatch({ type: "SignUp_Success"});
     }).catch((err) => { dispatch({type: "SignUp_Error",  err  });
    })
