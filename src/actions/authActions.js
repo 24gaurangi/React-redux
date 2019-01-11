@@ -21,3 +21,16 @@ export const signOut = () => {
 
   }
 };
+
+export const signUp = (user) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    //async
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    firebase.auth().signOut().then(() => {
+      dispatch({ type: "SignUp_Success"});
+    }).catch((err) => { dispatch({type: "SignUp_Error",  err  });
+   })
+
+  }
+};

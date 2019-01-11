@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import { signUp } from '../actions/authActions'
 
 class Signup extends Component {
   // componentDidMount(){
   //   console.log("Component did mount", this.textInput.value)
   // }
+  state = {
+    email : '',
+    password : '',
+    firstName: '',
+    lastName: ''
+  }
   handleChange = (e) => {
-    console.log(e.target.value)
+    this.setState(
+      {
+        [e.target.id]: e.target.value
+      }
+    )
     }
   handleSubmit = (e) => {
     e.preventDefault()
     // console.log(this.textInput.value)
-    console.log(e)
+    this.props.signUp(this.state)
     }
 
   render(){
     if(this.props.auth.uid) return <Redirect to='/' />
     return(
+
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <h5 className="black-text">Sign Up</h5>
@@ -49,7 +61,11 @@ class Signup extends Component {
 const mapStatetoProps = (state) => {
   return {
     auth: state.firebase.auth
+  }
 }
-}
-
-export default connect(mapStatetoProps)(Signup);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUp : (user) => { dispatch(signUp(user))}
+    }
+  }
+export default connect(mapStatetoProps, mapDispatchToProps)(Signup);
