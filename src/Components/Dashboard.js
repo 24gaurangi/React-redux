@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { deleteAction } from '../actions/todoActions'
 import {firestoreConnect} from 'react-redux-firebase'
 import { compose} from 'redux'
+import { Redirect } from 'react-router-dom'
 
 
 class Dashboard extends Component {
@@ -14,6 +15,7 @@ class Dashboard extends Component {
     }
 
   render() {
+    if(!this.props.auth.uid) return <Redirect to='/signin' />
     return (
       <div className="dashboard container">
           <div className="row">
@@ -32,7 +34,8 @@ class Dashboard extends Component {
 
 const mapStatetoProps = (state) => {
   return {
-    todos: state.firestore.ordered.Todos
+    todos: state.firestore.ordered.Todos,
+    auth: state.firebase.auth
 }
 }
 const mapDispatchToProps = (dispatch) => {
