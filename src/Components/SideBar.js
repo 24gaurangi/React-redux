@@ -1,24 +1,27 @@
-import React, { Component } from 'react';
+import React  from 'react';
+import moment from 'moment';
 
-class SideBar extends Component {
+const SideBar = ({history}) => {
 
-render(){
-  // const todoList = this.state.todos.length ? (this.state.todos.map(todo => {
-  //   return(
-  //       <div className="collection-item" key={todo.id}>
-  //         <span>{todo.content}</span>
-  //       </div>
-  //   )
-  // })) : (<p className=" center">You have no items left! </p>)
-  // console.log("delete history prop",this.props.deleteHistory)
-  return(
-      <div className="sidebar container">
-        <div className="blue-text center"><h5>Notifications</h5></div>
-          <ul>
-          <li><h6 className="red-text" >{this.props.deleteHistory}</h6></li>
+return(
+  <div className="sidebar container">
+    <div className="card z-depth-0">
+      <div className="card-content">
+        <span className="card-title">History</span>
+        <ul className="notifications">
+        { history && history.map(item => {
+          return (
+          <li key={item.id}>
+            <span className="pink-text">{item.action} </span>
+            <span>{item.content}</span>
+            <div className="grey-text note-date">{moment(item.time.toDate()).fromNow()}</div>
+          </li> )
+        })}
         </ul>
       </div>
+    </div>
+  </div>
   )
 }
-}
+
 export default SideBar

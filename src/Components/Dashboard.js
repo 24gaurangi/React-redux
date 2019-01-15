@@ -10,10 +10,6 @@ import { Redirect } from 'react-router-dom'
 
 
 class Dashboard extends Component {
-  update = (content) => {
-    content? this.content = content: this.content = ''
-    }
-
   render() {
     if(!this.props.auth.uid) return <Redirect to='/signin' />
     return (
@@ -24,7 +20,7 @@ class Dashboard extends Component {
               <AddTodo />
             </div>
             <div className="col s12 m4 offset-m1">
-              <SideBar deleteHistory={this.content}/>
+              <SideBar history={this.props.history}/>
             </div>
           </div>
       </div>
@@ -35,6 +31,7 @@ class Dashboard extends Component {
 const mapStatetoProps = (state) => {
   return {
     todos: state.firestore.ordered.Todos,
+    history: state.firestore.ordered.History,
     auth: state.firebase.auth
 }
 }
@@ -48,6 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
   connect(mapStatetoProps, mapDispatchToProps),
   firestoreConnect([
-    { collection: 'Todos'}
+    { collection: 'Todos'},
+    { collection: 'History', limit:4, orderBy: ['time', 'desc']}
   ])
 )(Dashboard);

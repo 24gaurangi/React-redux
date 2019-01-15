@@ -1,0 +1,14 @@
+[debug] [2019-01-15T05:40:41.426Z] ----------------------------------------------------------------------
+[debug] [2019-01-15T05:40:41.435Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Gaurangi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2019-01-15T05:40:41.436Z] CLI Version:   6.2.2
+[debug] [2019-01-15T05:40:41.437Z] Platform:      win32
+[debug] [2019-01-15T05:40:41.437Z] Node Version:  v10.11.0
+[debug] [2019-01-15T05:40:41.442Z] Time:          Mon Jan 14 2019 21:40:41 GMT-0800 (Pacific Standard Time)
+[debug] [2019-01-15T05:40:41.442Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-15T05:40:41.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-15T05:40:41.491Z] > authorizing via signed-in user
+[debug] [2019-01-15T05:40:41.492Z] [iam] checking project taskmgrapp-87d04 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2019-01-15T05:40:41.498Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-01-15T05:40:41.499Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>

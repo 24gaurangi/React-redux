@@ -2,13 +2,13 @@ import React from 'react';
 
 
 const Todos = ({todos, deleteTodo, update}) => {
-  // ?console.log(todos)
+  console.log(todos)
   const todoList = todos ? (todos.map(todo => {
     return(
         <div className="collection-item" key={todo.id}>
           <span>{todo.content}</span>
           <i className="material-icons red-text text-accent-2 right"
-          onClick = {() => {deleteTodo(todo.id); update(todo.content)} }>done</i>
+          onClick = {() => {deleteTodo(todo.id)} }>done</i>
       </div>
     )
   })) : (<p className=" center">You have no items left! </p>)
