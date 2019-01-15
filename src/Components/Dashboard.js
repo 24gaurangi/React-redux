@@ -16,8 +16,15 @@ class Dashboard extends Component {
       <div className="dashboard container">
           <div className="row">
             <div className="col s12 m7">
-              <Todos todos={this.props.todos} deleteTodo={this.props.deleteTodo} update={this.update} /><br/>
-              <AddTodo />
+            <div className="card blue-grey">
+              <div className="card-content black-text">
+                <span className="card-title orange-text"><h5>Pending Items</h5></span><br/>
+                <Todos todos={this.props.todos} deleteTodo={this.props.deleteTodo} update={this.update} />
+              </div>
+              <div className="card-action">
+                <AddTodo />
+              </div>
+            </div>
             </div>
             <div className="col s12 m4 offset-m1">
               <SideBar history={this.props.history}/>

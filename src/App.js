@@ -14,6 +14,7 @@ class App extends Component {
           <div className="light-blue lighten-1">
               <NavBar className='section'/>
           </div>
+          <br/><br/>
           <div className="cyan lighten-5">
             <Switch>
               <Route exact path="/" component={Dashboard} />

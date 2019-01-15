@@ -16,12 +16,10 @@ class AddTodo extends Component {
 
   render(){
     return(
-      <div className="container left ">
         <form onSubmit={this.handleSubmit}>
-          <label className="blue-text"><h5>Add new Task</h5></label>
+          <label><h5 className='orange-text'>Add new Task</h5></label>
           <input type="text" id="task"  ref={(input) => this.textInput = input} />
         </form>
-      </div>
       )
     }
 }

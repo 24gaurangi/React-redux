@@ -7,15 +7,13 @@ const Todos = ({todos, deleteTodo, update}) => {
     return(
         <div className="collection-item" key={todo.id}>
           <span>{todo.content}</span>
-          <i className="material-icons red-text text-accent-2 right"
-          onClick = {() => {deleteTodo(todo.id)} }>done</i>
-      </div>
+          <div className="btn-flat waves-effect red-text lighten-5 right" onClick = {() => {deleteTodo(todo.id)} }>X</div>
+        </div>
     )
   })) : (<p className=" center">You have no items left! </p>)
 
   return(
-      <div className="todos collection with-header">
-        <div className="collection-header blue-text"><h5>Pending Items</h5></div>
+      <div className="todos collection ">
         {todoList}
       </div>
   )
