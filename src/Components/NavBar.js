@@ -9,7 +9,7 @@ const NavBar = (props) => {
 
   return(
     <div className="navbar-fixed transparent">
-      <nav className="nav-wrapper teal lighten-2 ">
+      <nav className="nav-wrapper blue-grey lighten-2 ">
         <div className="container">
           <Link to="/" className="brand-logo black-text"> Task Manager </Link>
           { authlinks }

@@ -15,8 +15,12 @@ class Dashboard extends Component {
     return (
       <div className="dashboard container">
           <div className="row">
-            <div className="col s12 m7">
-            <div className="card blue-grey">
+            <div className="col s12 m8">
+            <div className="card horizontal blue-grey">
+            <div className="card-image">
+              <img src="img/Cardbg.JPG" alt="scenery" />
+            </div>
+            <div className="card-stacked">
               <div className="card-content black-text">
                 <span className="card-title orange-text"><h5>Pending Items</h5></span><br/>
                 <Todos todos={this.props.todos} deleteTodo={this.props.deleteTodo} update={this.update} />
@@ -24,12 +28,18 @@ class Dashboard extends Component {
               <div className="card-action">
                 <AddTodo />
               </div>
+              </div>
             </div>
             </div>
-            <div className="col s12 m4 offset-m1">
-              <SideBar history={this.props.history}/>
+            <div className="col s12 m3 offset-m1">
+            <div className="card blue-grey">
+              <div className="card-content black-text">
+                <span className="card-title orange-text"><h5>History</h5></span><br/>
+                <SideBar history={this.props.history}/>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     )
   }
