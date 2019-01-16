@@ -28,11 +28,14 @@ class Signup extends Component {
 
   render(){
     if(this.props.auth.uid) return <Redirect to='/' />
-    return(
+      return(
 
-      <div className="container">
-        <form onSubmit={this.handleSubmit}>
-          <h5 className="black-text">Sign Up</h5>
+      <div class="row">
+      <div class="col s12 m4 offset-m4">
+      <div className="card cardbg amber lighten-5">
+      <form className="form" onSubmit={this.handleSubmit}>
+        <div className="card-content black-text">
+          <span className="card-title deep-purple-text"><h5>Sign Up</h5></span>
           <div className="input-field">
             <label htmlFor="firstName">First name</label>
             <input type="text" id="firstName"  onChange={this.handleChange} />
@@ -49,15 +52,22 @@ class Signup extends Component {
             <label htmlFor="email">Password</label>
             <input type="password" id="password"  onChange={this.handleChange} />
           </div>
-          <div className="input-field">
-            <button className="btn pink z-depth-0">Sign Up</button>
-          </div>
+        </div>
+        <div class="card-action">
+        <div className="input-field center">
+              <button className="btn deep-purple  lighten-1 z-depth-0">Sign Up</button>
+            </div>
+
+      </div>
         </form>
         <div className="red-text center">
           {this.props.authError}
         </div>
       </div>
-      )
+      </div>
+      </div>
+
+    )
     }
 }
 

@@ -1,6 +1,5 @@
 
 export const deleteAction = (id) => {
-  console.log('d clicked')
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //async
     const firestoreDB = getFirestore();
@@ -11,11 +10,11 @@ export const deleteAction = (id) => {
 }
 };
 
-export const addAction = (content) => {
+export const addAction = (content, user) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //async
     const firestoreDB = getFirestore();
-    firestoreDB.collection('Todos').add({content}).then(() => { dispatch({ type: "Add_Todo", content: content  });
+    firestoreDB.collection('Todos').add({content: content, user: user}).then(() => { dispatch({ type: "Add_Todo", content: content  });
     }).catch((err) => { dispatch({type: "Add_Todo_Error",  err  });
    })
 

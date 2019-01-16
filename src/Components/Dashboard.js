@@ -11,28 +11,29 @@ import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
+    const todos = this.props.todos
     if(!this.props.auth.uid) return <Redirect to='/signin' />
+    const usertodos = todos && todos.filter(todo => {
+      return todo.user===this.props.auth.uid
+    })
     return (
       <div className="dashboard container">
           <div className="row">
-            <div className="col s12 m8">
-            <div className="card horizontal blue-grey">
-            <div className="card-image">
-              <img src="img/Cardbg.JPG" alt="scenery" />
-            </div>
-            <div className="card-stacked">
+            <div className="col s12 m7">
+            <div className="card amber lighten-5">
+
               <div className="card-content black-text">
                 <span className="card-title orange-text"><h5>Pending Items</h5></span><br/>
-                <Todos todos={this.props.todos} deleteTodo={this.props.deleteTodo} update={this.update} />
+                <Todos todos={usertodos} deleteTodo={this.props.deleteTodo} update={this.update} />
               </div>
               <div className="card-action">
-                <AddTodo />
+                <AddTodo user={this.props.auth.uid}/>
               </div>
-              </div>
+
             </div>
             </div>
-            <div className="col s12 m3 offset-m1">
-            <div className="card blue-grey">
+            <div className="col s12 m4 offset-m1 right">
+            <div className="card purple-lighten-4">
               <div className="card-content black-text">
                 <span className="card-title orange-text"><h5>History</h5></span><br/>
                 <SideBar history={this.props.history}/>

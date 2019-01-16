@@ -11,17 +11,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App ">
-          <div className="light-blue lighten-1">
-              <NavBar className='section'/>
-          </div>
+          <NavBar className='section'/>
           <br/><br/>
-          <div className="cyan lighten-5">
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route path="/signin" component={Signin} />
               <Route path="/signup" component={Signup} />
             </Switch>
-          </div>
         </div>
       </BrowserRouter>
     )

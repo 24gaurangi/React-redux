@@ -9,8 +9,7 @@ class AddTodo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(this.textInput.value)
-    this.props.addTodo(this.textInput.value)
+    this.props.addTodo(this.textInput.value, this.props.user)
     this.textInput.value = ''
     }
 
@@ -26,7 +25,7 @@ class AddTodo extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo : (content) => { dispatch(addAction(content))  }
+    addTodo : (content, user) => { dispatch(addAction(content, user))  }
   }
 }
 

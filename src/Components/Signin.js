@@ -27,23 +27,32 @@ class Signin extends Component {
 
   render(){
     if(this.props.auth.uid) return <Redirect to='/' />
-    return(
-      <div className="container">
-        <form onSubmit={this.handleSubmit}>
-          <h5 className="black-text">Sign In</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email"  onChange={this.handleChange} />
+      return(
+        <div className="row">
+        <div className="col s12 m4 offset-m4">
+        <div className="card cardbg amber lighten-5">
+        <form className="form" onSubmit={this.handleSubmit}>
+          <div className="card-content black-text">
+            <span className="card-title deep-purple-text"><h5>Sign In</h5></span>
+            <div className="input-field">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email"  onChange={this.handleChange} />
+            </div>
+            <div className="input-field">
+              <label htmlFor="email">Password</label>
+              <input type="password" id="password"  onChange={this.handleChange} />
+            </div>
           </div>
-          <div className="input-field">
-            <label htmlFor="email">Password</label>
-            <input type="password" id="password"  onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button className="btn pink z-depth-0">Login</button>
-          </div>
-        </form>
-      </div>
+          <div className="card-action">
+          <div className="input-field center">
+                <button className="btn deep-purple lighten-1  z-depth-0">Login</button>
+              </div>
+
+        </div>
+          </form>
+        </div>
+        </div>
+        </div>
       )
     }
 }

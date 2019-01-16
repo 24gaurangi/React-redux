@@ -8,14 +8,17 @@ const NavBar = (props) => {
   const authlinks = props.auth.uid? <SignedIn /> : <SignedOut />
 
   return(
-    <div className="navbar-fixed transparent">
-      <nav className="nav-wrapper blue-grey lighten-2 ">
-        <div className="container">
-          <Link to="/" className="brand-logo black-text"> Task Manager </Link>
+    <div className="navbar-fixed ">
+    <nav className="transparentBG z-depth-2">
+    <div className="nav-wrapper">
+    <div className="container">
+    <Link to="/" className="brand-logo left "> Task Manager </Link>
           { authlinks }
-        </div>
-      </nav>
+      </div>
     </div>
+    </nav>
+    </div>
+
     )
   }
 
