@@ -13,6 +13,7 @@ exports.todoCreated = functions.firestore.document('Todos/{todo}')
     const history = {
       action: 'Added new task',
       content:`${todo.content}`,
+      user:`${todo.user}`,
       time: admin.firestore.FieldValue.serverTimestamp()
     }
 
@@ -24,6 +25,7 @@ exports.todoDeleted = functions.firestore.document('Todos/{todo}')
     const history = {
       action: 'Deleted task',
       content:`${todo.content}`,
+      user:`${todo.user}`,
       time: admin.firestore.FieldValue.serverTimestamp()
     }
 

@@ -2,7 +2,9 @@ import React from 'react';
 
 
 const Todos = ({todos, deleteTodo, update}) => {
+  if (todos === []) {todos = 'undefined' }
   console.log(todos)
+
   const todoList = todos ? (todos.map(todo => {
     return(
         <div className="collection-item" key={todo.id}>

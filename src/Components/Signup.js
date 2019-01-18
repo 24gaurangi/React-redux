@@ -22,7 +22,6 @@ class Signup extends Component {
     }
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
     this.props.signUp(this.state)
     }
 
@@ -30,8 +29,8 @@ class Signup extends Component {
     if(this.props.auth.uid) return <Redirect to='/' />
       return(
 
-      <div class="row">
-      <div class="col s12 m4 offset-m4">
+      <div className="row">
+      <div className="col s12 m4 offset-m4">
       <div className="card cardbg amber lighten-5">
       <form className="form" onSubmit={this.handleSubmit}>
         <div className="card-content black-text">
@@ -53,7 +52,7 @@ class Signup extends Component {
             <input type="password" id="password"  onChange={this.handleChange} />
           </div>
         </div>
-        <div class="card-action">
+        <div className="card-action">
         <div className="input-field center">
               <button className="btn deep-purple  lighten-1 z-depth-0">Sign Up</button>
             </div>

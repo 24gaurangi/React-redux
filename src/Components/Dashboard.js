@@ -11,19 +11,24 @@ import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
-    const todos = this.props.todos
     if(!this.props.auth.uid) return <Redirect to='/signin' />
+
+    const todos = this.props.todos
     const usertodos = todos && todos.filter(todo => {
       return todo.user===this.props.auth.uid
+    })
+    const history = this.props.history
+    const userhistory = history && history.filter(history => {
+      return history.user===this.props.auth.uid
     })
     return (
       <div className="dashboard container">
           <div className="row">
             <div className="col s12 m7">
-            <div className="card amber lighten-5">
+            <div className="card">
 
               <div className="card-content black-text">
-                <span className="card-title orange-text"><h5>Pending Items</h5></span><br/>
+                <span className="card-title deep-purple-text text-lighten-1"><h5>Pending Items</h5></span><br/>
                 <Todos todos={usertodos} deleteTodo={this.props.deleteTodo} update={this.update} />
               </div>
               <div className="card-action">
@@ -33,10 +38,10 @@ class Dashboard extends Component {
             </div>
             </div>
             <div className="col s12 m4 offset-m1 right">
-            <div className="card purple-lighten-4">
+            <div className="card ">
               <div className="card-content black-text">
-                <span className="card-title orange-text"><h5>History</h5></span><br/>
-                <SideBar history={this.props.history}/>
+                <span className="card-title deep-purple-text text-lighten-1"><h5>History</h5></span><hr/><br/>
+                <SideBar history={userhistory}/>
               </div>
             </div>
           </div>

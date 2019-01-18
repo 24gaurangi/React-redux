@@ -9,7 +9,7 @@ return(
         { history && history.map(item => {
           return (
           <li key={item.id}>
-            <span className="pink-text text-lighten-3">{item.action} </span>
+            <span className="purple-text text-lighten-1">{item.action} </span>
             <span>{item.content}</span>
             <div className="grey-text note-date">{moment(item.time.toDate()).fromNow()}</div>
           </li> )

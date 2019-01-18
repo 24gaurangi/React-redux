@@ -30,7 +30,7 @@ class Signin extends Component {
       return(
         <div className="row">
         <div className="col s12 m4 offset-m4">
-        <div className="card cardbg amber lighten-5">
+        <div className="card">
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="card-content black-text">
             <span className="card-title deep-purple-text"><h5>Sign In</h5></span>
@@ -50,7 +50,11 @@ class Signin extends Component {
 
         </div>
           </form>
-        </div>
+          <div className="red-text center">
+            {this.props.authError}
+          </div>
+          <br/>
+          </div>
         </div>
         </div>
       )
@@ -58,7 +62,8 @@ class Signin extends Component {
 }
 const mapStatetoProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
 }
 }
 

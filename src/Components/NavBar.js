@@ -12,7 +12,7 @@ const NavBar = (props) => {
     <nav className="transparentBG z-depth-2">
     <div className="nav-wrapper">
     <div className="container">
-    <Link to="/" className="brand-logo left "> Task Manager </Link>
+    <Link to="/" className="brand-logo deep-purple-text text-lighten-1 left "> Task Manager </Link>
           { authlinks }
       </div>
     </div>

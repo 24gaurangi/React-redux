@@ -8,7 +8,7 @@ const SignedIn = (props) => {
     <ul className="right">
       <li><NavLink to="/" className="black-text "> Analytics </NavLink></li>
       <li><a href="/" onClick={props.signOut} className="black-text"> Sign Out </a></li>
-      <li><NavLink to="/" className="btn btn-floating red lighten-2 black-text"> {props.profile.initials} </NavLink></li>
+      <li><NavLink to="/" className="btn btn-floating deep-purple lighten-1 white-text"> {props.profile.initials} </NavLink></li>
     </ul>
     )
   }
