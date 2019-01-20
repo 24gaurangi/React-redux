@@ -10,11 +10,23 @@ export const deleteAction = (id) => {
 }
 };
 
+export const completeAction = (id) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    //async
+    console.log("2");
+    const firestoreDB = getFirestore();
+    firestoreDB.collection('Todos').doc(id).update({completed:true}).then(() => {
+    dispatch({type: "Complete_Todo", id: id});
+  }).catch((err) => { dispatch({type: "Complete_Todo_Error",  err  });
+})
+}
+};
+
 export const addAction = (content, user) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //async
     const firestoreDB = getFirestore();
-    firestoreDB.collection('Todos').add({content: content, user: user}).then(() => { dispatch({ type: "Add_Todo", content: content  });
+    firestoreDB.collection('Todos').add({content: content, user: user, completed: false}).then(() => { dispatch({ type: "Add_Todo", content: content  });
     }).catch((err) => { dispatch({type: "Add_Todo_Error",  err  });
    })
 

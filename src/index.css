@@ -23,10 +23,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 form button, form h5{
   margin:10px 0;
 }
 .navbar-fixed{
   opacity:1;
+}
+form input[type=text].task {
+  border: 1px solid;
+  border-color: #e0e0e0;
+  padding-left: 10px;
+}
+span.todo {
+  margin: 0;
+  padding: 5px 8px;
+  cursor:pointer;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  }
+
+  span.todo:hover {
+
+    background-color: #e0e0ff;
+
+    }
+.todolist {
+  padding: 30px;
 }

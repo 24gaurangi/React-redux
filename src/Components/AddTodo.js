@@ -17,7 +17,8 @@ class AddTodo extends Component {
     return(
         <form onSubmit={this.handleSubmit}>
           <label><h5 className='deep-purple-text text-lighten-1'>Add new Task</h5></label>
-          <input type="text" id="task"  ref={(input) => this.textInput = input} required /><button className="btn deep-purple lighten-1 z-depth-0">Add</button>
+          <input type="text" className="task" ref={(input) => this.textInput = input} required />
+          <button className="btn deep-purple lighten-1 z-depth-0">Add</button>
         </form>
 
       )
@@ -26,7 +27,7 @@ class AddTodo extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo : (content, user) => { dispatch(addAction(content, user))  }
+    addTodo : (content, user, completed) => { dispatch(addAction(content, user))  }
   }
 }
 

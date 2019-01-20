@@ -4,6 +4,7 @@ import AddTodo from './AddTodo';
 import SideBar from './SideBar';
 import { connect } from 'react-redux';
 import { deleteAction } from '../actions/todoActions'
+import { completeAction } from '../actions/todoActions'
 import {firestoreConnect} from 'react-redux-firebase'
 import { compose} from 'redux'
 import { Redirect } from 'react-router-dom'
@@ -14,9 +15,9 @@ class Dashboard extends Component {
     if(!this.props.auth.uid) return <Redirect to='/signin' />
 
     const todos = this.props.todos
-    const usertodos = todos && todos.filter(todo => {
-      return todo.user===this.props.auth.uid
-    })
+    // const usertodos = todos && todos.filter(todo => {
+    //   return todo.user===this.props.auth.uid
+    // })
     const history = this.props.history
     const userhistory = history && history.filter(history => {
       return history.user===this.props.auth.uid
@@ -28,8 +29,8 @@ class Dashboard extends Component {
             <div className="card">
 
               <div className="card-content black-text">
-                <span className="card-title deep-purple-text text-lighten-1"><h5>Pending Items</h5></span><br/>
-                <Todos todos={usertodos} deleteTodo={this.props.deleteTodo} update={this.update} />
+                <span className="card-title deep-purple-text text-lighten-1"><h5>Task List</h5></span><br/>
+                <Todos todos={todos} deleteTodo={this.props.deleteTodo} completeTodo={this.props.completeTodo} />
               </div>
               <div className="card-action">
                 <AddTodo user={this.props.auth.uid}/>
@@ -60,7 +61,8 @@ const mapStatetoProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteTodo : (id) => { dispatch(deleteAction(id))}
+    deleteTodo : (id) => { dispatch(deleteAction(id))},
+    completeTodo : (id) => { dispatch(completeAction(id))}
     }
   }
 

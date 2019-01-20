@@ -15,7 +15,17 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       todos: updatedTodos
+      }
     }
+    case "Complete_Todo":
+    {
+      let updatedTodos = state.todos.filter(todo => {
+      return action.id !== todo.id
+    });
+    return {
+      ...state,
+      todos: updatedTodos
+      }
     }
     case "Add_Todo":
     {

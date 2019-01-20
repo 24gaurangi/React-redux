@@ -1,15 +1,22 @@
 import React from 'react';
 
 
-const Todos = ({todos, deleteTodo, update}) => {
-  if (todos === []) {todos = 'undefined' }
+const Todos = ({todos, deleteTodo, completeTodo}) => {
   console.log(todos)
 
   const todoList = todos ? (todos.map(todo => {
+    var flag = todo.completed? <i className="material-icons green-text">check</i>: ''
     return(
         <div className="collection-item" key={todo.id}>
-          <span>{todo.content}</span>
-          <div className="btn-flat waves-effect red-text lighten-5 right" onClick = {() => {deleteTodo(todo.id)} }>X</div>
+          <span className="todo" onClick = {() => {completeTodo(todo.id)} }>{todo.content}</span>
+          <span className="btn-flat tooltipped waves-effect red-text right" onClick = {() => {deleteTodo(todo.id)} }>
+            <i className="material-icons">highlight_off</i>
+          </span>
+          <span className="red-text right" >
+            {flag}
+          </span>
+
+
         </div>
     )
   })) : (<p className=" center">You have no items left! </p>)
