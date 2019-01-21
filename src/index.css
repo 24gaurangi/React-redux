@@ -19,6 +19,9 @@ body {
 .transparentBG {
   background-color: rgba(0,0,0,0);
 }
+.row .col{
+  padding:1.3rem;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -33,6 +36,8 @@ form input[type=text].task {
   border: 1px solid;
   border-color: #e0e0e0;
   padding-left: 10px;
+  padding-left: 10px;
+  max-width: 86%;
 }
 span.todo {
   margin: 0;
@@ -42,11 +47,40 @@ span.todo {
   border-radius: 5px;
   }
 
-  span.todo:hover {
-
-    background-color: #e0e0ff;
-
-    }
+span.todo:hover {
+  background-color: #e0e0ff;
+  }
+div.dashboard.container{
+  width: 90%;
+}
 .todolist {
   padding: 30px;
+}
+.btn-floating.btn-small {
+    border: 1px solid;
+    border-color: grey;
+    width: 26px;
+    height: 26px;
+    margin-left: 8px;
+}
+.btn-floating.btn-small i {
+    line-height: 26px;
+  }
+.tabs .tab a{
+  color: purple;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: transparent;
+    color: purple;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: transparent;
+    color: purple;
+}
+.tabs .indicator {
+    background-color: mediumpurple;}
+
+.react-calendar, .react-calendar *, .react-calendar *:before, .react-calendar *:after {
+    box-sizing: border-box;
+    border-color: transparent;
 }

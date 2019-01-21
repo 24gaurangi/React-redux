@@ -26,7 +26,9 @@ export const addAction = (content, user) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //async
     const firestoreDB = getFirestore();
-    firestoreDB.collection('Todos').add({content: content, user: user, completed: false}).then(() => { dispatch({ type: "Add_Todo", content: content  });
+    firestoreDB.collection('Todos').add(
+      {content: content, user: user, completed: false, createTime: firestoreDB.FieldValue.serverTimestamp()
+      }).then(() => { dispatch({ type: "Add_Todo", content: content  });
     }).catch((err) => { dispatch({type: "Add_Todo_Error",  err  });
    })
 

@@ -16,9 +16,14 @@ class AddTodo extends Component {
   render(){
     return(
         <form onSubmit={this.handleSubmit}>
-          <label><h5 className='deep-purple-text text-lighten-1'>Add new Task</h5></label>
-          <input type="text" className="task" ref={(input) => this.textInput = input} required />
-          <button className="btn deep-purple lighten-1 z-depth-0">Add</button>
+          <div>
+          <span><input type="text" className="task" ref={(input) => this.textInput = input} placeholder="Add new Task" required /></span>
+          <span className="btn-floating btn deep-purple lighten-2 text-white pulse right tooltipped" data-tooltip="I am a tooltip" onClick={this.handleSubmit}>
+            <i className=" material-icons">add</i>
+          </span>
+          </div>
+
+
         </form>
 
       )
