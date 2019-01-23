@@ -13,7 +13,6 @@ export const deleteAction = (id) => {
 export const completeAction = (id) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //async
-    console.log("2");
     const firestoreDB = getFirestore();
     firestoreDB.collection('Todos').doc(id).update({completed:true}).then(() => {
     dispatch({type: "Complete_Todo", id: id});
